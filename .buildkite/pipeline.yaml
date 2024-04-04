@@ -10,7 +10,7 @@ steps:
       echo Build state of slave pipeline: %BUILD_STATE%
       endlocal
     agents:
-    queue: "default"
+      queue: "default"
 
   - label: "Retrieve_Slave_Pipeline_Build_State"
     command: | 
