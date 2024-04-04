@@ -1,12 +1,12 @@
+env :
+  SLAVE_PIPELINE_ORG="rtctek"
+  SLAVE_PIPELINE="gunjan-test-pipeline"
+  BUILDKITE_API_TOKEN="bkua_5b60deaf82f5775af82478873bab212805995acc"
+  BUILDKITE_API_URL="https://api.buildkite.com/v2"
 steps:
   # Retrieve Slave Pipeline Build State
   - label: "Retrieve_Slave_Pipeline_Build_State"
-    command: |
-      SLAVE_PIPELINE_ORG="rtctek"
-      SLAVE_PIPELINE="gunjan-test-pipeline"
-      BUILDKITE_API_TOKEN="bkua_5b60deaf82f5775af82478873bab212805995acc"
-      BUILDKITE_API_URL="https://api.buildkite.com/v2"
-      
+    command: | 
       build_state=$(curl -s -H "Authorization: Bearer $BUILDKITE_API_TOKEN" $BUILDKITE_API_URL/organizations/$SLAVE_PIPELINE_ORG/pipelines/$SLAVE_PIPELINE/builds?branch=main | jq -r '.[0].state')
       echo "Build state of slave pipeline: $build_state"
       
