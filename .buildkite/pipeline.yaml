@@ -1,6 +1,6 @@
 steps:
   - label: "Setup Environment"
-    command: "./setup.sh"  # Execute the setup script to set environment variables
+    command: "bash ./setup.sh"  # Execute the setup script to set environment variables
     agents:
       queue: "default"
 
