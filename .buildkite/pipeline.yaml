@@ -1,15 +1,15 @@
 steps:
   - label: "Retrieve_Slave_Pipeline_Build_State"
-  command: |
-    @echo off
-    setlocal
-    set BUILD_STATE=
-    for /f "usebackq tokens=*" %%i in (`curl -s -H "Authorization: Bearer %BUILDKITE_API_TOKEN%" %BUILDKITE_API_URL%/organizations/%SLAVE_PIPELINE_ORG%/pipelines/%SLAVE_PIPELINE%/builds?branch=main ^| jq -r ".[0].state"`) do (
-        set BUILD_STATE=%%i
-    )
-    echo Build state of slave pipeline: %BUILD_STATE%
-    endlocal
-  agents:
+    command: |
+      @echo off
+      setlocal
+      set BUILD_STATE=
+      for /f "usebackq tokens=*" %%i in (`curl -s -H "Authorization: Bearer %BUILDKITE_API_TOKEN%" %BUILDKITE_API_URL%/organizations/%SLAVE_PIPELINE_ORG%/pipelines/%SLAVE_PIPELINE%/builds?branch=main ^| jq -r ".[0].state"`) do (
+          set BUILD_STATE=%%i
+      )
+      echo Build state of slave pipeline: %BUILD_STATE%
+      endlocal
+    agents:
     queue: "default"
 
   - label: "Retrieve_Slave_Pipeline_Build_State"
