@@ -1,0 +1,37 @@
+steps:
+  # Retrieve Slave Pipeline Build State
+  - label: "Retrieve_Slave_Pipeline_Build_State"
+    command: |
+      # Make a REST API call to retrieve the build state of the slave pipeline
+      
+      build_state=$(curl -s -H "Authorization: Bearer $BUILDKITE_API_TOKEN" $BUILDKITE_API_URL/organizations/$SLAVE_PIPELINE_ORG/pipelines/$SLAVE_PIPELINE/builds?branch=main | jq -r '.[0].state')
+      echo "Build state of slave pipeline: $build_state"
+      
+      # Save the build state in a file or environment variable for further processing
+    agents:
+      queue: "default"
+
+  # Process Build State
+  - label: "Process_Build_State"
+    command: |
+      echo "add code"
+      # Process the captured build state
+      # Determine if the slave pipeline needs to be unblocked based on the build state
+      # You may need to use conditionals (if-else) to check the build state and take appropriate actions
+    agents:
+      queue: "default"
+    depends_on: "Retrieve_Slave_Pipeline_Build_State"
+
+  # Unblock Slave Pipeline if Necessary
+  - label: "Unblock_Slave_Pipeline_if_Necessary"
+    command: |
+      echo "add code 2"
+      # Run a script to unblock the slave pipeline if necessary
+      # This script will be executed based on the processing of the build state
+    agents:
+      queue: "default"
+    depends_on: "Process_Build_State"
+
+  # Continue with Master Pipeline Steps
+  - label: "Master_Pipeline_Step_1"
+    command: echo "add run config stage here"
