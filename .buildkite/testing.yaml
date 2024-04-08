@@ -1,18 +1,26 @@
 steps:
-    - block: "Unblock!"
-      fields:
-        - text: "Who is unblocking this stage?"
-          key: "unblocker"
-          hint: "Provide your work email"
-    - wait
-          
-    - label: "dev"
-      key: "dev"
-      command: echo "this is dev"
-      
-    - wait
-    
-    - blocks:
-        - name: Trigger Slave Pipeline
-          script:
-            - buildkite-agent trigger-pipeline --branch=main slave-testing-pipeline
+  - trigger: slave-testing-pipeline
+    async: true
+    build:
+      message: "Triggered by Master Pipeline"
+      commit: "HEAD"
+      branch: "main"
+    key: "trigger-slave-pipeline"
+  
+  - wait
+  
+  - block: "Wait for Unblock Signal"
+    fields:
+      - text: "Unblocker Name"
+        key: "unblocker_name"
+        required: true
+      - text: "Unblocker Email"
+        key: "unblocker_email"
+        required: true
+  
+  - label: "Unblock Slave Pipeline"
+    command: |
+      curl -H "Authorization: Bearer bkua_5b60deaf82f5775af82478873bab212805995acc" \
+        -X PUT "https://api.buildkite.com/v2/organizations/$BUILDKITE_ORG/pipelines/$SLAVE_PIPELINE_SLUG/builds/$BUILDKITE_BUILD_NUMBER/unblock" \
+        -H "Content-Type: application/json" \
+        -d '{}'
