@@ -13,7 +13,7 @@ steps:
     - wait
     
     - label: "trigger other slave pipeline"
-      trigger: gunjan-test-pipeline
+      trigger: slave-pipeline
       soft_fail: true
       branches: "main"
       build:
