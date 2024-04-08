@@ -1,11 +1,9 @@
 steps:
   - trigger: slave-pipeline
-    async: true
     build:
       message: "Triggered by Master Pipeline"
       commit: "HEAD"
       branch: "main"
-    key: "trigger-slave-pipeline"
   
   - wait
   
