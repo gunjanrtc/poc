@@ -21,5 +21,3 @@ steps:
             "Who is unblocking this stage?": "gunjan"
             }
         }'
-
-    - wait
