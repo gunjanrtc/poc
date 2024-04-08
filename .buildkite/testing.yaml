@@ -1,0 +1,26 @@
+steps:
+    - block: "Unblock!"
+      fields:
+        - text: "Who is unblocking this stage?"
+          key: "unblocker"
+          hint: "Provide your work email"
+    - wait
+          
+    - label: "dev"
+      key: "dev"
+      command: echo "this is dev"
+      
+    - wait
+    
+    - blocks:
+        - name: Trigger Slave Pipeline
+          script:
+            # Run slave pipeline with build ID from current pipeline
+            - buildkite-agent trigger-pipeline --branch=main slave-pipeline
+
+    - label: "trigger other slave pipeline"
+      trigger: slave-pipeline
+      soft_fail: true
+      branches: "main"
+      build:
+        message: "Running slave pipeline"
