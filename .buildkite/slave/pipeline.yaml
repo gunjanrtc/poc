@@ -11,6 +11,8 @@
           key: "unblocker"
           hint: "Provide your work email"
           
+    - wait
+          
     - label: "staging"
       key: "staging"
       command: |
@@ -21,5 +23,3 @@
     - label: "prod"
       key: "prod"
       command: echo "this is prod stage"
-      
-    - wait  
