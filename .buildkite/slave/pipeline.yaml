@@ -1,0 +1,25 @@
+  steps: 
+    - label: "dev"
+      key: "dev"
+      command: echo "this is dev"
+      
+    - wait
+    
+    - block: "Unblock!"
+      fields:
+        - text: "Who is unblocking this stage?"
+          key: "unblocker"
+          hint: "Provide your work email"
+          
+    - label: "staging"
+      key: "staging"
+      command: |
+        echo "this is staging stage"
+      
+    - wait
+ 
+    - label: "prod"
+      key: "prod"
+      command: echo "this is prod stage"
+      
+    - wait  
