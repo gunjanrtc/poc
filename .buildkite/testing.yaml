@@ -15,5 +15,4 @@ steps:
     - blocks:
         - name: Trigger Slave Pipeline
           script:
-            # Run slave pipeline with build ID from current pipeline
             - buildkite-agent trigger-pipeline --branch=main slave-testing-pipeline
