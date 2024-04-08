@@ -10,7 +10,7 @@ steps:
   - wait
   
   - block: "Wait for Unblock Signal"
-  
+  -  wait
   - label: "Unblock Slave Pipeline"
     command: |
       curl -H "Authorization: Bearer bkua_5b60deaf82f5775af82478873bab212805995acc" \
@@ -21,3 +21,5 @@ steps:
             "Who is unblocking this stage?": "gunjan"
             }
         }'
+
+    - wait
