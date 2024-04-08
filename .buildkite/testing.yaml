@@ -14,9 +14,10 @@ steps:
   - label: "Unblock Slave Pipeline"
     command: |
       curl -H "Authorization: Bearer bkua_5b60deaf82f5775af82478873bab212805995acc" \
-        -X PUT "https://api.buildkite.com/v2/organizations/rtctek/pipelines/slave-pipeline/builds/12/jobs/018ebd4e-2a8c-4534-b5e4-e01ecde0dd64/unblock" \
+        -X PUT "https://api.buildkite.com/v2/organizations/rtctek/pipelines/BUILDKITE_PIPELINE_NAME/builds/BUILDKITE_BUILD_NUMBER/jobs/BUILDKITE_JOB_ID/unblock" \
         -H "Content-Type: application/json" \
         -d '{
-        "fields": {
-          "Who is unblocking this stage?": "gunjan"
+          "fields": {
+            "Who is unblocking this stage?": "gunjan"
+            }
         }'
