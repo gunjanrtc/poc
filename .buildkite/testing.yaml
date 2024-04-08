@@ -10,13 +10,6 @@ steps:
   - wait
   
   - block: "Wait for Unblock Signal"
-    fields:
-      - text: "Unblocker Name"
-        key: "unblocker_name"
-        required: true
-      - text: "Unblocker Email"
-        key: "unblocker_email"
-        required: true
   
   - label: "Unblock Slave Pipeline"
     command: |
