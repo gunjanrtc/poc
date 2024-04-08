@@ -16,11 +16,4 @@ steps:
         - name: Trigger Slave Pipeline
           script:
             # Run slave pipeline with build ID from current pipeline
-            - buildkite-agent trigger-pipeline --branch=main slave-pipeline
-
-    - label: "trigger other slave pipeline"
-      trigger: slave-pipeline
-      soft_fail: true
-      branches: "main"
-      build:
-        message: "Running slave pipeline"
+            - buildkite-agent trigger-pipeline --branch=main slave-testing-pipeline
