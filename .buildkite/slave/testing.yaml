@@ -1,0 +1,12 @@
+  steps: 
+    - label: "dev"
+      key: "dev"
+      command: echo "this is dev"
+      
+    - blocks:
+      - name: Stage (Replace with your actual stage name)
+        script:
+          - echo "this is under blocks block"
+
+    - name: Unblock Stage 1 (Trigger from Master Pipeline)
+      trigger: "!buildkite-agent trigger-previous-block"  # Triggered by master pipeline
