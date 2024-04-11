@@ -9,4 +9,6 @@ steps:
   
   
   - label: "Unblock Slave Pipeline"
-    command: echo "$unblock_url"
+    command: |
+      unblock_url=$(jq -r '.jobs[3].unblock_url')
+      echo $unblock_url
