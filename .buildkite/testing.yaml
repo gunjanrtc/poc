@@ -1,5 +1,5 @@
 env:
-  RUNNER_SCRIPT: ./.buildkite/setup.sh
+  RUNNER_SCRIPT: /.buildkite/setup.sh
   
 steps:
   - trigger: slave-pipeline
