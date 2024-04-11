@@ -8,3 +8,7 @@ run(){
   echo $BUILDKITE_BUILD_NUMBER
   echo $slaveBuild
 }
+
+if [[ "$1" == "run" ]]; then
+    run
+fi
