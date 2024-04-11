@@ -7,9 +7,6 @@ steps:
   
   - wait
   
-  - block: "Wait for Unblock Signal"
-  -  wait
   
   - label: "Unblock Slave Pipeline"
-    command: |
-      echo $unblock_url
+    command: echo $unblock_url
