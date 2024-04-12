@@ -1,4 +1,3 @@
 steps:
   - label: "Unblock Slave Pipeline"
-    commands:
-      -  ./setup.sh
+    command: "./setup.sh"
