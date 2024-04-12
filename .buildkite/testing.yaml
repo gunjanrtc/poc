@@ -1,13 +1,3 @@
 steps:
-  - trigger: slave-pipeline
-    build:
-      message: "Triggered by Master Pipeline"
-      commit: "HEAD"
-      branch: "main"
-  
-  - wait
-  
-  
   - label: "Unblock Slave Pipeline"
-    commands:
-      -  echo "get build number of slave without triggering"
+    command: "C:\\Users\\gunjan\\github-poc\\poc\\.buildkite\\setup.sh run"
