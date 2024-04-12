@@ -1,3 +1,6 @@
+env:
+  RUNNER_SCRIPT: C:\\Users\\gunjan\\github-poc\\poc\\.buildkite\\setup.sh
 steps:
   - label: "Unblock Slave Pipeline"
-    command: "C:\\Users\\gunjan\\github-poc\\poc\\.buildkite\\setup.sh run"
+    commands: |
+      -  $RUNNER_SCRIPT run
