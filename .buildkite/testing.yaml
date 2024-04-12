@@ -1,6 +1,5 @@
 steps:
   - label: "Unblock Slave Pipeline"
     command: |
-    	#!/bin/bash
-     	set -eo pipefail
-      	pwd
+     #!/bin/bash
+     pwd
