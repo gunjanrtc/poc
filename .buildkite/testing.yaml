@@ -1,3 +1,6 @@
 steps:
   - label: "Unblock Slave Pipeline"
-    command: "powershell -command echo "hello world"
+    command: |
+    @echo off
+    echo Hello, World!
+    pause
