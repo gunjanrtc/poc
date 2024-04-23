@@ -1,5 +1,5 @@
 env:
-  SCRIPT: C:\buildkite-agent\builds\RTC-DLLA48-1\rtctek\master-pipeline\.buildkite\setup.sh
+  SCRIPT: C:\\buildkite-agent\\builds\\RTC-DLLA48-1\\rtctek\\master-pipeline\\.buildkite\\setup.sh
 steps:
   - label: "Unblock Slave Pipeline"
     commands: bash $SCRIPT
