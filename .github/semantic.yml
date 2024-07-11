@@ -1,6 +1,7 @@
 types:
   - feat
   - demo
+  - Bump
 enabled: true
 titleAndCommits: true
 anyCommit: true
